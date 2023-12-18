@@ -1,18 +1,20 @@
 import UIKit
 
 protocol ActivationRoutingLogic {
+    func routeToLogin(navigationController: UINavigationController?)
 }
 
-protocol ActivationDataPassing {
-    var dataStore: ActivationDataStore? { get }
-}
-
-final class ActivationRouter: ActivationRoutingLogic, ActivationDataPassing {
+final class ActivationRouter: ActivationRoutingLogic {
 
     // MARK: - Properties
 
     weak var viewController: ActivationViewController?
-    var dataStore: ActivationDataStore?
-
+    
+    // MARK: - Routing
+    
+    func routeToLogin(navigationController: UINavigationController?) {
+        let loginViewController = LoginAssembler.assemble()
+        navigationController?.pushViewController(loginViewController, animated: true)
+    }
     
 }

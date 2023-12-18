@@ -36,6 +36,7 @@ final class InputTextField: UITextField {
         spellCheckingType = .no
         clipsToBounds = true
         backgroundColor = AppColor.themeSecondaryBackgroundColor.uiColor
+        autocapitalizationType = .none
     }
     
 }

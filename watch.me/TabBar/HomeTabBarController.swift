@@ -2,21 +2,6 @@ import UIKit
 
 final class HomeTabBarController: UITabBarController {
     
-    // MARK: - Properties
-    
-    private var email: String
-    
-    // MARK: - Object Lifecycle
-    
-    init(email: String) {
-        self.email = email
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -77,7 +62,7 @@ final class HomeTabBarController: UITabBarController {
                                                      bottom: -imageYPositionAdjustment,
                                                      right: 0)
         
-        let third = UINavigationController(rootViewController: ProfileAssembler.assemble(email: email))
+        let third = UINavigationController(rootViewController: ProfileAssembler.assemble())
         third.tabBarItem = UITabBarItem(title: nil,
                                         image: UIImage(systemName: "person.fill"),
                                         selectedImage: UIImage(systemName: "person.fill"))

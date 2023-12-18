@@ -4,10 +4,7 @@ protocol ProfileBusinessLogic {
     
 }
 
-protocol ProfileDataStore {
-}
-
-final class ProfileInteractor: ProfileBusinessLogic, ProfileDataStore {
+final class ProfileInteractor: ProfileBusinessLogic {
 
     // MARK: - Properties
 

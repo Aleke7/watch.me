@@ -4,14 +4,14 @@ import ProgressHUD
 
 protocol RegistrationDelegate: AnyObject {
     func showLoginPage()
-    func readInputFields(email: String?, password: String?)
+    func readInputFields(email: String?, password: String?, isCheck: Bool)
 }
 
 final class RegistrationView: SignView {
     
     // MARK: - Properties
     
-    public weak var delegate: RegistrationDelegate?
+    weak var delegate: RegistrationDelegate?
     
     // MARK: - UI
     
@@ -165,7 +165,8 @@ final class RegistrationView: SignView {
     private func registerButtonPressed() {
         let email = getEmail()
         let password = getPassword()
-        delegate?.readInputFields(email: email, password: password)
+        let isCheck = checkboxButton.isSelected
+        delegate?.readInputFields(email: email, password: password, isCheck: isCheck)
     }
     
     @objc

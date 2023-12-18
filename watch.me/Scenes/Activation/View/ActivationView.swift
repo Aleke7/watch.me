@@ -1,9 +1,16 @@
 import UIKit
 import SnapKit
+import ProgressHUD
+
+protocol ActivationDelegate: AnyObject {
+    func readActivationCode(activationCode: String)
+}
 
 final class ActivationView: UIView {
     
     // MARK: = Properties
+    
+    weak var delegate: ActivationDelegate?
     
     private var activationCode: String {
         let digit1 = digit1TextField.text ?? ""
@@ -14,8 +21,6 @@ final class ActivationView: UIView {
         return code
     }
     
-    private var maskedEmail: String
-
     // MARK: - UI
     
     private lazy var instructionLabel: UILabel = {
@@ -30,7 +35,9 @@ final class ActivationView: UIView {
     
     private lazy var emailLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = maskedEmail
+        if let email = UserDefaults.standard.string(forKey: "email") {
+            label.text = email.maskEmail()
+        }
         label.font = AppFont.medium.s20()
         label.textColor = AppColor.themeButtonColor.uiColor
         label.textAlignment = .center
@@ -83,9 +90,8 @@ final class ActivationView: UIView {
     
     // MARK: - Object Lifecycle
     
-    init(maskedEmail: String) {
-        self.maskedEmail = maskedEmail
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
         setupConstraints()
         setupGestures()
@@ -184,7 +190,7 @@ final class ActivationView: UIView {
 
     }
     
-    // MARK: = Actions
+    // MARK: - Actions
     
     @objc 
     private func textFieldDidChange(_ textField: UITextField) {
@@ -206,7 +212,11 @@ final class ActivationView: UIView {
     
     @objc
     private func continueButtonPressed() {
-        
+        guard activationCode.count == 4 else {
+            ProgressHUD.showBanner("Oops", "Enter activation code")
+            return
+        }
+        delegate?.readActivationCode(activationCode: activationCode)
     }
     
     @objc

@@ -2,19 +2,14 @@ import UIKit
 
 protocol RegistrationRoutingLogic {
     func routeToLogin(navigationController: UINavigationController?)
-    func routeToActivation(navigationController: UINavigationController?, maskedEmail: String)
+    func routeToActivation(navigationController: UINavigationController?)
 }
 
-protocol RegistrationDataPassing {
-    var dataStore: RegistrationDataStore? { get }
-}
-
-final class RegistrationRouter: RegistrationRoutingLogic, RegistrationDataPassing {
+final class RegistrationRouter: RegistrationRoutingLogic {
 
     // MARK: - Properties
 
     weak var viewController: RegistrationViewController?
-    var dataStore: RegistrationDataStore?
 
     // MARK: - Routing
 
@@ -23,12 +18,12 @@ final class RegistrationRouter: RegistrationRoutingLogic, RegistrationDataPassin
             navigationController?.popViewController(animated: true)
             return
         }
-        let registrationViewController = LoginAssembler.assemble()
-        navigationController?.pushViewController(registrationViewController, animated: true)
+        let loginViewController = LoginAssembler.assemble()
+        navigationController?.pushViewController(loginViewController, animated: true)
     }
     
-    func routeToActivation(navigationController: UINavigationController?, maskedEmail: String) {
-        let activationViewController = ActivationAssembler.assemble(maskedEmail: maskedEmail)
+    func routeToActivation(navigationController: UINavigationController?) {
+        let activationViewController = ActivationAssembler.assemble()
         navigationController?.pushViewController(activationViewController, animated: true)
     }
 }

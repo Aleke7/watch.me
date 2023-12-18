@@ -1,8 +1,8 @@
 import Foundation
 
 final class ProfileAssembler {
-    static func assemble(email: String) -> ProfileViewController {
-        let viewController = ProfileViewController(email: email)
+    static func assemble() -> ProfileViewController {
+        let viewController = ProfileViewController()
         let interactor = ProfileInteractor()
         let presenter = ProfilePresenter()
         let router = ProfileRouter()
@@ -12,7 +12,6 @@ final class ProfileAssembler {
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
         
         return viewController
     }

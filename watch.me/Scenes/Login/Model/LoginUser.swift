@@ -1,7 +1,6 @@
 import Foundation
 
-struct RegisterUser: Encodable {
-    let name: String
+struct LoginUser: Encodable {
     let email: String
     let password: String
 }

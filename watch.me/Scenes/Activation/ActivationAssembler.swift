@@ -1,8 +1,8 @@
 import Foundation
 
 final class ActivationAssembler {
-    static func assemble(maskedEmail: String) -> ActivationViewController {
-        let viewController = ActivationViewController(maskedEmail: maskedEmail)
+    static func assemble() -> ActivationViewController {
+        let viewController = ActivationViewController()
         let interactor = ActivationInteractor()
         let presenter = ActivationPresenter()
         let router = ActivationRouter()
@@ -12,7 +12,6 @@ final class ActivationAssembler {
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
         
         return viewController
     }

@@ -20,7 +20,6 @@ final class RegistrationWorker: RegistrationProtocol {
             fatalError("Could not create url")
         }
         
-        // Define your JSON data
         let jsonParameters: [String: Any] = [
             "name": registerUser.name,
             "email": registerUser.email,

@@ -4,16 +4,14 @@ protocol RegistrationBusinessLogic {
     func createUser(request: RegistrationModels.Request)
 }
 
-protocol RegistrationDataStore {
-    
-}
-
-final class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataStore {
+final class RegistrationInteractor: RegistrationBusinessLogic {
 
     // MARK: - Properties
 
     private lazy var worker = RegistrationWorker()
     var presenter: RegistrationPresentationLogic?
+    
+    // MARK: - RegistrationBusinessLogic
     
     func createUser(request: RegistrationModels.Request) {
         
@@ -23,12 +21,10 @@ final class RegistrationInteractor: RegistrationBusinessLogic, RegistrationDataS
         
         worker.requestUserCreation(registerUser: registerUser) { [weak self] result in
             switch result {
-                
             case .success(let userModel):
                 let response = RegistrationModels.Response(userModel: userModel)
                 self?.presenter?.presentUserModel(response: response)
-            case .failure(let error):
-                print(error.localizedDescription)
+            case .failure(_):
                 let response = RegistrationModels.Response(userModel: nil)
                 self?.presenter?.presentUserModel(response: response)
             }

@@ -1,11 +1,16 @@
 import UIKit
 import SnapKit
 
+protocol LoginDelegate: AnyObject {
+    func showRegistrationPage()
+    func readInputFields(email: String?, password: String?)
+}
+
 final class LoginView: SignView {
     
     // MARK: - Properties
     
-    public weak var communicationDelegate: LoginCommunicationDelegate?
+    weak var delegate: LoginDelegate?
     
     // MARK: - UI
     
@@ -94,15 +99,14 @@ final class LoginView: SignView {
     
     @objc
     private func loginButtonPressed() {
-        guard let email = getEmail() else {
-            return
-        }
-        communicationDelegate?.showHomePage(email: email)
+        let email = getEmail()
+        let password = getPassword()
+        delegate?.readInputFields(email: email, password: password)
     }
     
     @objc
     private func enterTapped() {
-        communicationDelegate?.showRegistrationPage()
+        delegate?.showRegistrationPage()
     }
     
 }

@@ -2,19 +2,14 @@ import UIKit
 
 protocol LoginRoutingLogic {
     func routeToRegistration(navigationController: UINavigationController?)
-    func routeToHome(navigationController: UINavigationController?, email: String)
+    func routeToHome(navigationController: UINavigationController?)
 }
 
-protocol LoginDataPassing {
-    var dataStore: LoginDataStore? { get }
-}
-
-final class LoginRouter: LoginRoutingLogic, LoginDataPassing {
+final class LoginRouter: LoginRoutingLogic {
 
     // MARK: - Properties
 
     weak var viewController: LoginViewController?
-    var dataStore: LoginDataStore?
 
     // MARK: - Routing
 
@@ -27,7 +22,7 @@ final class LoginRouter: LoginRoutingLogic, LoginDataPassing {
         navigationController?.pushViewController(registrationViewController, animated: true)
     }
     
-    func routeToHome(navigationController: UINavigationController?, email: String) {
+    func routeToHome(navigationController: UINavigationController?) {
         guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
             return
         }
@@ -35,7 +30,7 @@ final class LoginRouter: LoginRoutingLogic, LoginDataPassing {
         UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromRight, animations: {
             if let sceneDelegate =
                 UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                let homeTabBarController = HomeTabBarController(email: email)
+                let homeTabBarController = HomeTabBarController()
                 sceneDelegate.window?.rootViewController = homeTabBarController
             }
         }, completion: nil)

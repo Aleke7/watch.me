@@ -9,7 +9,7 @@ final class RegistrationViewController: ThemedViewController {
 
     // MARK: - Properties
 
-    var router: (RegistrationRoutingLogic & RegistrationDataPassing)?
+    var router: RegistrationRoutingLogic?
     var interactor: RegistrationBusinessLogic?
 
     // MARK: - Object Lifecycle
@@ -42,22 +42,27 @@ final class RegistrationViewController: ThemedViewController {
 
 }
 
+// MARK: - RegistrationDisplayLogic
+
 extension RegistrationViewController: RegistrationDisplayLogic {
+    
     func showAlert(viewModel: RegistrationModels.ViewModel) {
         guard let alertMessage = viewModel.alertMessage else {
-            router?.routeToActivation(navigationController: navigationController,
-                                      maskedEmail: viewModel.maskedEmail ?? "")
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            router?.routeToActivation(navigationController: navigationController)
             return
         }
         
-        ProgressHUD.showBanner("Error!", alertMessage)
+        ProgressHUD.showBanner("Alert", alertMessage)
     }
     
 }
 
+// MARK: - RegistrationDelegate
+
 extension RegistrationViewController: RegistrationDelegate {
     
-    func readInputFields(email: String?, password: String?) {
+    func readInputFields(email: String?, password: String?, isCheck: Bool) {
         guard let email = email, !email.isEmpty else {
             ProgressHUD.showBanner("Oops", "Please enter email")
             return
@@ -65,6 +70,11 @@ extension RegistrationViewController: RegistrationDelegate {
         
         guard let password = password, !password.isEmpty else {
             ProgressHUD.showBanner("Oops", "Please enter password")
+            return
+        }
+        
+        guard isCheck else {
+            ProgressHUD.showBanner("Oops", "You have to accept the terms of the Privacy Policy")
             return
         }
         

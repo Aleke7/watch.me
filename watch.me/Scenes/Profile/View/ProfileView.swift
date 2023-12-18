@@ -3,10 +3,6 @@ import SnapKit
 
 final class ProfileView: UIView {
     
-    // MARK: - Properties
-    
-    private var email: String
-    
     // MARK: - UI
     
     private lazy var profileTableView: UITableView = {
@@ -27,9 +23,8 @@ final class ProfileView: UIView {
 
     // MARK: - Object Lifecycle
     
-    init(email: String) {
-        self.email = email
-        super.init(frame: .zero)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupViews()
         setupConstraints()
     }
@@ -77,7 +72,6 @@ extension ProfileView: UITableViewDelegate, UITableViewDataSource {
                     as? EmailCell else {
                 return UITableViewCell(frame: .zero)
             }
-            cell.configure(email: email)
             return cell
         }
         

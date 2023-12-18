@@ -15,7 +15,6 @@ enum RegistrationModels {
     
     struct ViewModel {
         let alertMessage: String?
-        let maskedEmail: String?
     }
     
 }

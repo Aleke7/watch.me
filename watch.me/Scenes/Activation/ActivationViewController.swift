@@ -1,26 +1,20 @@
 import UIKit
-
-protocol ActivationCommunicationDelegate {
-    
-}
+import ProgressHUD
 
 protocol ActivationDisplayLogic: AnyObject {
-    
+    func showAlert(viewModel: ActivationModels.ViewModel)
 }
 
-final class ActivationViewController: ThemedViewController, ActivationDisplayLogic {
+final class ActivationViewController: ThemedViewController {
 
     // MARK: - Properties
 
-    var router: (ActivationRoutingLogic & ActivationDataPassing)?
+    var router: ActivationRoutingLogic?
     var interactor: ActivationBusinessLogic?
     
-    private var maskedEmail: String
+    // MARK: - Object Lifecycle
 
-    // MARK: - Object lifecycle
-
-    init(maskedEmail: String) {
-        self.maskedEmail = maskedEmail
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,7 +26,8 @@ final class ActivationViewController: ThemedViewController, ActivationDisplayLog
     
     override func loadView() {
         super.loadView()
-        let activationView = ActivationView(maskedEmail: maskedEmail)
+        let activationView = ActivationView()
+        activationView.delegate = self
         view = activationView
     }
 
@@ -40,4 +35,27 @@ final class ActivationViewController: ThemedViewController, ActivationDisplayLog
         super.viewDidLoad()
     }
 
+}
+
+extension ActivationViewController: ActivationDisplayLogic {
+    
+    func showAlert(viewModel: ActivationModels.ViewModel) {
+        ProgressHUD.showBanner("Alert", viewModel.alertMessage)
+        if viewModel.isActivated {
+            navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+            router?.routeToLogin(navigationController: navigationController)
+        }
+    }
+    
+}
+
+// MARK: - ActivationDelegate
+
+extension ActivationViewController: ActivationDelegate {
+    
+    func readActivationCode(activationCode: String) {
+        let request = ActivationModels.Request(activationCode: activationCode)
+        interactor?.activateUser(request: request)
+    }
+    
 }

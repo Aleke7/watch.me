@@ -2,13 +2,13 @@ import Foundation
 
 // MARK: - UserModel
 
-struct UserModel: Codable {
+struct UserModel: Decodable {
     let user: User
 }
 
 // MARK: - User
 
-struct User: Codable {
+struct User: Decodable {
     let id: Int
     let createdAt: Date
     let name, email: String

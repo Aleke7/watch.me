@@ -10,17 +10,19 @@ final class RegistrationPresenter: RegistrationPresentationLogic {
 
     weak var viewController: RegistrationDisplayLogic?
     
+    // MARK: - RegistrationPresentationLogic
+    
     func presentUserModel(response: RegistrationModels.Response) {
-        guard response.userModel != nil else {
-            let maskedEmail = response.userModel?.user.email.maskEmail()
-            let viewModel = RegistrationModels.ViewModel(alertMessage: "Something went wrong",
-                                                         maskedEmail: maskedEmail)
+        guard let userModel = response.userModel else {
+            let viewModel = RegistrationModels.ViewModel(alertMessage: "Something went wrong")
             viewController?.showAlert(viewModel: viewModel)
             return
         }
         
-        let maskedEmail = response.userModel?.user.email.maskEmail()
-        let viewModel = RegistrationModels.ViewModel(alertMessage: nil, maskedEmail: maskedEmail)
+        let email = userModel.user.email
+        UserDefaults.standard.setValue(email, forKey: "email")
+        
+        let viewModel = RegistrationModels.ViewModel(alertMessage: nil)
         viewController?.showAlert(viewModel: viewModel)
     }
 

@@ -1,4 +1,5 @@
 import UIKit
+import ProgressHUD
 
 protocol ProfileDisplayLogic: AnyObject {
     
@@ -8,14 +9,12 @@ final class ProfileViewController: ThemedViewController, ProfileDisplayLogic {
     
     // MARK: - Properties
     
-    var router: (ProfileRoutingLogic & ProfileDataPassing)?
+    var router: ProfileRoutingLogic?
     var interactor: ProfileBusinessLogic?
-    private var email: String
     
     // MARK: - Object Lifecycle
     
-    init(email: String) {
-        self.email = email
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,7 +26,7 @@ final class ProfileViewController: ThemedViewController, ProfileDisplayLogic {
     
     override func loadView() {
         super.loadView()
-        let profileView = ProfileView(email: email)
+        let profileView = ProfileView()
         view = profileView
     }
     
@@ -54,7 +53,35 @@ final class ProfileViewController: ThemedViewController, ProfileDisplayLogic {
     
     @objc
     private func logoutButtonPressed() {
+        let alertController = UIAlertController(title: "Logout",
+                                                message: "Are you sure you want to log out?",
+                                                preferredStyle: .alert)
         
+        let logoutAction = UIAlertAction(title: "Log Out", style: .destructive) { _ in
+            let keychainService = KeyChainService()
+            let isTokenRemoved = keychainService.removeToken()
+            
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
+                return
+            }
+            
+            UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+                if let sceneDelegate =
+                    UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+                   isTokenRemoved {
+                    let loginViewController =
+                    UINavigationController(rootViewController: LoginAssembler.assemble())
+                    sceneDelegate.window?.rootViewController = loginViewController
+                }
+            }, completion: nil)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alertController.addAction(logoutAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
 }

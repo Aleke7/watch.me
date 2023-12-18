@@ -70,6 +70,10 @@
 		477B1E982B2F7D9F009E55FE /* RegisterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E972B2F7D9F009E55FE /* RegisterUser.swift */; };
 		477B1E9A2B2F83E2009E55FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E992B2F83E2009E55FE /* User.swift */; };
 		477B1E9D2B2F96E9009E55FE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E9C2B2F96E9009E55FE /* String+Extensions.swift */; };
+		477B1EA02B309C99009E55FE /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 477B1E9F2B309C99009E55FE /* KeychainSwift */; };
+		477B1EA32B30B513009E55FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA22B30B513009E55FE /* Token.swift */; };
+		477B1EA52B30B52B009E55FE /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA42B30B52B009E55FE /* LoginUser.swift */; };
+		477B1EA82B30CBB9009E55FE /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA72B30CBB9009E55FE /* KeyChainService.swift */; };
 		47E239EC2AE6EEA000689B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E239EB2AE6EEA000689B95 /* AppDelegate.swift */; };
 		47E239EE2AE6EEA000689B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E239ED2AE6EEA000689B95 /* SceneDelegate.swift */; };
 		47E239F52AE6EEA100689B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E239F42AE6EEA100689B95 /* Assets.xcassets */; };
@@ -148,6 +152,9 @@
 		477B1E972B2F7D9F009E55FE /* RegisterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUser.swift; sourceTree = "<group>"; };
 		477B1E992B2F83E2009E55FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		477B1E9C2B2F96E9009E55FE /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		477B1EA22B30B513009E55FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		477B1EA42B30B52B009E55FE /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
+		477B1EA72B30CBB9009E55FE /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		47E239E82AE6EEA000689B95 /* watch.me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watch.me.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E239EB2AE6EEA000689B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E239ED2AE6EEA000689B95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +173,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477B1EA02B309C99009E55FE /* KeychainSwift in Frameworks */,
 				477B1E512B2DB21E009E55FE /* ProgressHUD in Frameworks */,
 				47E23A072AE6F21900689B95 /* Kingfisher in Frameworks */,
 				47E23A012AE6EF9100689B95 /* SnapKit in Frameworks */,
@@ -236,6 +244,8 @@
 				474C4F9E2B2B5DCF00AF68CE /* LoginViewController.swift */,
 				474C4F9F2B2B5DCF00AF68CE /* LoginInteractor.swift */,
 				474C4FA62B2B618B00AF68CE /* LoginAssembler.swift */,
+				477B1EA12B30B4A1009E55FE /* Model */,
+				477B1EA62B30CB8B009E55FE /* Service */,
 				474C4FA82B2B661300AF68CE /* View */,
 			);
 			path = Login;
@@ -393,6 +403,23 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		477B1EA12B30B4A1009E55FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EA42B30B52B009E55FE /* LoginUser.swift */,
+				477B1EA22B30B513009E55FE /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		477B1EA62B30CB8B009E55FE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EA72B30CBB9009E55FE /* KeyChainService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		47E239DF2AE6EEA000689B95 = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +505,7 @@
 				47E23A062AE6F21900689B95 /* Kingfisher */,
 				47E23A092AE6F23A00689B95 /* netfox */,
 				477B1E502B2DB21E009E55FE /* ProgressHUD */,
+				477B1E9F2B309C99009E55FE /* KeychainSwift */,
 			);
 			productName = watch.me;
 			productReference = 47E239E82AE6EEA000689B95 /* watch.me.app */;
@@ -513,6 +541,7 @@
 				47E23A052AE6F21900689B95 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				47E23A082AE6F23900689B95 /* XCRemoteSwiftPackageReference "netfox" */,
 				477B1E4F2B2DB21E009E55FE /* XCRemoteSwiftPackageReference "ProgressHUD" */,
+				477B1E9E2B309C99009E55FE /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = 47E239E92AE6EEA000689B95 /* Products */;
 			projectDirPath = "";
@@ -550,6 +579,7 @@
 				477B1E5E2B2DC1E3009E55FE /* HomeInteractor.swift in Sources */,
 				474C4FBF2B2CBF8600AF68CE /* SplashViewController.swift in Sources */,
 				477B1E6B2B2E1E2C009E55FE /* BrandCell.swift in Sources */,
+				477B1EA32B30B513009E55FE /* Token.swift in Sources */,
 				474C4FB62B2C84AC00AF68CE /* ActivationViewController.swift in Sources */,
 				474C4FB92B2C856900AF68CE /* ActivationAssembler.swift in Sources */,
 				477B1E5B2B2DC1E3009E55FE /* HomeRouter.swift in Sources */,
@@ -568,9 +598,11 @@
 				477B1E5A2B2DC1E3009E55FE /* HomeWorker.swift in Sources */,
 				477B1E7C2B2EBE44009E55FE /* ProfilePresenter.swift in Sources */,
 				477B1E642B2DC806009E55FE /* HomeView.swift in Sources */,
+				477B1EA52B30B52B009E55FE /* LoginUser.swift in Sources */,
 				474C4FA52B2B5DCF00AF68CE /* LoginInteractor.swift in Sources */,
 				474C4F8A2B29DE2100AF68CE /* RegistrationRouter.swift in Sources */,
 				47E8609D2B22F4A5000E9EDD /* AppFont.swift in Sources */,
+				477B1EA82B30CBB9009E55FE /* KeyChainService.swift in Sources */,
 				477B1E7F2B2EBE44009E55FE /* ProfileModels.swift in Sources */,
 				47E23A0D2AE6F3C800689B95 /* AppImage.swift in Sources */,
 				477B1E7E2B2EBE44009E55FE /* ProfileRouter.swift in Sources */,
@@ -833,6 +865,14 @@
 				version = 13.8.6;
 			};
 		};
+		477B1E9E2B309C99009E55FE /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
 		47E239FF2AE6EF9100689B95 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -872,6 +912,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 477B1E4F2B2DB21E009E55FE /* XCRemoteSwiftPackageReference "ProgressHUD" */;
 			productName = ProgressHUD;
+		};
+		477B1E9F2B309C99009E55FE /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 477B1E9E2B309C99009E55FE /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 		47E23A002AE6EF9100689B95 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

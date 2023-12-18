@@ -12,7 +12,6 @@ final class LoginAssembler {
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
-        router.dataStore = interactor
         
         return viewController
     }

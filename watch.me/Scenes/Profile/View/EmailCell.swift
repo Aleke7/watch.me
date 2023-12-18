@@ -25,7 +25,9 @@ final class EmailCell: UITableViewCell {
     
     private lazy var emailLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "insar2801@gmail.com"
+        if let email = UserDefaults.standard.string(forKey: "email") {
+            label.text = email
+        }
         label.font = AppFont.medium.s16()
         label.textColor = AppColor.grey60.uiColor
         return label
@@ -71,12 +73,6 @@ final class EmailCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-24)
             make.centerY.equalToSuperview()
         }
-    }
-    
-    // MARK: - Public
-    
-    public func configure(email: String) {
-        emailLabel.text = email
     }
     
 }
