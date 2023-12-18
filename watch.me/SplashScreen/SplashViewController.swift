@@ -3,7 +3,11 @@ import SnapKit
 
 final class SplashViewController: ThemedViewController {
     
-    // MARK: = UI
+    // MARK: - Properties
+    
+    private var rootViewController: UIViewController
+    
+    // MARK: - UI
     
     private lazy var appIconImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
@@ -13,7 +17,18 @@ final class SplashViewController: ThemedViewController {
         imageView.layer.masksToBounds = false
         return imageView
     }()
-
+    
+    // MARK: - Object Lifecycle
+    
+    init(rootViewController: UIViewController) {
+        self.rootViewController = rootViewController
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -21,7 +36,7 @@ final class SplashViewController: ThemedViewController {
         setupViews()
         setupConstraints()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.showMainInterface()
+            self.showMainInterface(viewController: self.rootViewController)
         }
     }
     
@@ -46,9 +61,9 @@ final class SplashViewController: ThemedViewController {
         }
     }
     
-    // MARK: - Main
+    // MARK: - Main Interface
     
-    private func showMainInterface() {
+    private func showMainInterface(viewController: UIViewController) {
         guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
             return
         }
@@ -56,13 +71,18 @@ final class SplashViewController: ThemedViewController {
         UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
             if let sceneDelegate =
                 UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                let loginViewController = 
-                            UINavigationController(rootViewController: LoginAssembler.assemble())
-                sceneDelegate.window?.rootViewController = loginViewController
+                
+                guard viewController.tabBarController != nil else {
+                    sceneDelegate.window?.rootViewController = viewController
+                    return
+                }
+                
+                let rootViewController =
+                            UINavigationController(rootViewController: viewController)
+                sceneDelegate.window?.rootViewController = rootViewController
+                
             }
         }, completion: nil)
-        
-        
     }
 
 }

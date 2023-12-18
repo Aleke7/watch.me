@@ -34,7 +34,7 @@ final class HomeTabBarController: UITabBarController {
         tabBar.itemWidth = width / 6
         tabBar.itemPositioning = .centered
         
-        roundLayer.fillColor = AppColor.grey80.cgColor
+        roundLayer.fillColor = AppColor.grey70.cgColor
         tabBar.tintColor = AppColor.grey0.uiColor
         tabBar.unselectedItemTintColor = AppColor.grey60.uiColor
         tabBar.backgroundImage = UIImage()

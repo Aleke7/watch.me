@@ -33,6 +33,7 @@ enum AppColor: String, AppColorProtocol {
     case grey0
     case grey40
     case grey60
+    case grey70
     case grey80
     case grey100
     
