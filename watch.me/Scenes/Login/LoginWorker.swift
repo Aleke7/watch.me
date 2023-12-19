@@ -32,7 +32,6 @@ final class LoginWorker: LoginProtocol {
                    headers: ["Content-Type": "application/json"])
             .validate()
             .responseDecodable(of: TokenModel.self) { response in
-                print(response.data)
                 completion(response.result)
             }
     }
