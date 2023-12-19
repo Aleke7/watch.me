@@ -200,7 +200,7 @@
 		474C4F7C2B2988EE00AF68CE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				477B1E922B2F54F1009E55FE /* ThemeManager.swift */,
+				477B1E912B2F54DA009E55FE /* ThemeManager */,
 				474C4F7D2B29893C00AF68CE /* InputTextField.swift */,
 				474C4F7F2B29933A00AF68CE /* InputTitleLabel.swift */,
 				474C4F932B29EFCB00AF68CE /* ProceedButton.swift */,
@@ -376,6 +376,14 @@
 				477B1E8F2B2F38DF009E55FE /* FavoritesCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		477B1E912B2F54DA009E55FE /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				477B1E922B2F54F1009E55FE /* ThemeManager.swift */,
+			);
+			path = ThemeManager;
 			sourceTree = "<group>";
 		};
 		477B1E962B2F7CD5009E55FE /* Model */ = {

@@ -4,7 +4,10 @@ protocol HomeBusinessLogic {
     
 }
 
-final class HomeInteractor: HomeBusinessLogic {
+protocol HomeDataStore {
+}
+
+final class HomeInteractor: HomeBusinessLogic, HomeDataStore {
 
     // MARK: - Properties
 
