@@ -1,7 +1,7 @@
 import UIKit
 
 class ThemedViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyCurrentTheme()

@@ -2,11 +2,7 @@ import UIKit
 import SnapKit
 
 final class SplashViewController: ThemedViewController {
-    
-    // MARK: - Properties
-    
-    private var rootViewController: UIViewController
-    
+
     // MARK: - UI
     
     private lazy var appIconImageView: UIImageView = {
@@ -18,25 +14,14 @@ final class SplashViewController: ThemedViewController {
         return imageView
     }()
     
-    // MARK: - Object Lifecycle
-    
-    init(rootViewController: UIViewController) {
-        self.rootViewController = rootViewController
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.showMainInterface(viewController: self.rootViewController)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.showMainInterface()
         }
     }
     
@@ -63,7 +48,7 @@ final class SplashViewController: ThemedViewController {
     
     // MARK: - Main Interface
     
-    private func showMainInterface(viewController: UIViewController) {
+    private func showMainInterface() {
         guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else {
             return
         }
@@ -71,18 +56,24 @@ final class SplashViewController: ThemedViewController {
         UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
             if let sceneDelegate =
                 UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                
-                guard viewController.tabBarController != nil else {
-                    sceneDelegate.window?.rootViewController = viewController
-                    return
-                }
-                
-                let rootViewController =
-                            UINavigationController(rootViewController: viewController)
-                sceneDelegate.window?.rootViewController = rootViewController
-                
+                sceneDelegate.window?.rootViewController = self.getRootViewController()
             }
         }, completion: nil)
+    }
+    
+    //  MARK: - RootViewController
+    
+    private func getRootViewController() -> UIViewController {
+        let keychainService = KeyChainService()
+        
+        let homeTabBarController = HomeTabBarController()
+        let loginViewController = UINavigationController(rootViewController: LoginAssembler.assemble())
+        
+        let rootViewController = ((keychainService.getAuthToken() != nil) && keychainService.isTokenValid())
+                                    ? homeTabBarController
+                                    : loginViewController
+        
+        return rootViewController
     }
 
 }

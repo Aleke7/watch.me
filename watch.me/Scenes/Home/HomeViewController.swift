@@ -8,7 +8,7 @@ final class HomeViewController: ThemedViewController, HomeDisplayLogic {
 
     // MARK: - Properties
 
-    var router: (HomeRoutingLogic & HomeDataPassing)?
+    var router: HomeRoutingLogic?
     var interactor: HomeBusinessLogic?
 
     // MARK: - Object Lifecycle
