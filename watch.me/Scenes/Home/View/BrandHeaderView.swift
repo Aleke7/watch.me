@@ -40,9 +40,8 @@ final class BrandHeaderView: UICollectionReusableView {
     
     private func setupConstraints() {
         brandsLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(16)
+            make.bottom.equalToSuperview().offset(16)
         }
     }
     

@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import Alamofire
 
 protocol ActivationProtocol {
@@ -20,6 +20,8 @@ final class ActivationWorker: ActivationProtocol {
             fatalError("Could not create url")
         }
         
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        
         let jsonParameters: [String: Any] = [
             "token": activationCode
         ]
@@ -28,7 +30,7 @@ final class ActivationWorker: ActivationProtocol {
                    method: .put,
                    parameters: jsonParameters,
                    encoding: JSONEncoding.default,
-                   headers: ["Content-Type": "application/json"])
+                   headers: headers)
             .validate()
             .responseDecodable(of: UserModel.self) { response in
                 completion(response.result)

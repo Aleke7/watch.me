@@ -40,9 +40,8 @@ final class PopularHeaderView: UICollectionReusableView {
     
     private func setupConstraints() {
         popularLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
     

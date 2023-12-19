@@ -51,7 +51,6 @@
 		477B1E6B2B2E1E2C009E55FE /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E6A2B2E1E2C009E55FE /* BrandCell.swift */; };
 		477B1E6D2B2E2060009E55FE /* PopularHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E6C2B2E2060009E55FE /* PopularHeaderView.swift */; };
 		477B1E6F2B2E2142009E55FE /* WatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E6E2B2E2142009E55FE /* WatchCell.swift */; };
-		477B1E742B2E2B12009E55FE /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E732B2E2B12009E55FE /* UIImage+Extensions.swift */; };
 		477B1E7C2B2EBE44009E55FE /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E762B2EBE44009E55FE /* ProfilePresenter.swift */; };
 		477B1E7D2B2EBE44009E55FE /* ProfileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E772B2EBE44009E55FE /* ProfileWorker.swift */; };
 		477B1E7E2B2EBE44009E55FE /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1E782B2EBE44009E55FE /* ProfileRouter.swift */; };
@@ -74,6 +73,8 @@
 		477B1EA32B30B513009E55FE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA22B30B513009E55FE /* Token.swift */; };
 		477B1EA52B30B52B009E55FE /* LoginUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA42B30B52B009E55FE /* LoginUser.swift */; };
 		477B1EA82B30CBB9009E55FE /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA72B30CBB9009E55FE /* KeyChainService.swift */; };
+		477B1EAC2B319C7A009E55FE /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EAB2B319C7A009E55FE /* Watch.swift */; };
+		477B1EAE2B31DA1D009E55FE /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EAD2B31DA1D009E55FE /* Brand.swift */; };
 		47E239EC2AE6EEA000689B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E239EB2AE6EEA000689B95 /* AppDelegate.swift */; };
 		47E239EE2AE6EEA000689B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E239ED2AE6EEA000689B95 /* SceneDelegate.swift */; };
 		47E239F52AE6EEA100689B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E239F42AE6EEA100689B95 /* Assets.xcassets */; };
@@ -133,7 +134,6 @@
 		477B1E6A2B2E1E2C009E55FE /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		477B1E6C2B2E2060009E55FE /* PopularHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularHeaderView.swift; sourceTree = "<group>"; };
 		477B1E6E2B2E2142009E55FE /* WatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCell.swift; sourceTree = "<group>"; };
-		477B1E732B2E2B12009E55FE /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		477B1E762B2EBE44009E55FE /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		477B1E772B2EBE44009E55FE /* ProfileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileWorker.swift; sourceTree = "<group>"; };
 		477B1E782B2EBE44009E55FE /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
@@ -155,6 +155,8 @@
 		477B1EA22B30B513009E55FE /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		477B1EA42B30B52B009E55FE /* LoginUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUser.swift; sourceTree = "<group>"; };
 		477B1EA72B30CBB9009E55FE /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
+		477B1EAB2B319C7A009E55FE /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
+		477B1EAD2B31DA1D009E55FE /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
 		47E239E82AE6EEA000689B95 /* watch.me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watch.me.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E239EB2AE6EEA000689B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E239ED2AE6EEA000689B95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -329,6 +331,8 @@
 		477B1E702B2E2417009E55FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				477B1EAB2B319C7A009E55FE /* Watch.swift */,
+				477B1EAD2B31DA1D009E55FE /* Brand.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -345,7 +349,6 @@
 		477B1E722B2E2AFD009E55FE /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				477B1E732B2E2B12009E55FE /* UIImage+Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				477B1E5E2B2DC1E3009E55FE /* HomeInteractor.swift in Sources */,
 				474C4FBF2B2CBF8600AF68CE /* SplashViewController.swift in Sources */,
 				477B1E6B2B2E1E2C009E55FE /* BrandCell.swift in Sources */,
+				477B1EAE2B31DA1D009E55FE /* Brand.swift in Sources */,
 				477B1EA32B30B513009E55FE /* Token.swift in Sources */,
 				474C4FB62B2C84AC00AF68CE /* ActivationViewController.swift in Sources */,
 				474C4FB92B2C856900AF68CE /* ActivationAssembler.swift in Sources */,
@@ -615,10 +619,10 @@
 				477B1E692B2E1B17009E55FE /* BrandHeaderView.swift in Sources */,
 				474C4FA42B2B5DCF00AF68CE /* LoginViewController.swift in Sources */,
 				477B1E802B2EBE44009E55FE /* ProfileViewController.swift in Sources */,
+				477B1EAC2B319C7A009E55FE /* Watch.swift in Sources */,
 				474C4F8B2B29DE2100AF68CE /* RegistrationModels.swift in Sources */,
 				477B1E832B2EBED5009E55FE /* ProfileAssembler.swift in Sources */,
 				474C4FB32B2C84AC00AF68CE /* ActivationWorker.swift in Sources */,
-				477B1E742B2E2B12009E55FE /* UIImage+Extensions.swift in Sources */,
 				477B1E8E2B2F3593009E55FE /* DarkThemeCell.swift in Sources */,
 				477B1E612B2DC586009E55FE /* HomeAssembler.swift in Sources */,
 				477B1E952B2F56E9009E55FE /* ThemedViewController.swift in Sources */,

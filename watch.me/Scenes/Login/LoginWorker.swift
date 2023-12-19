@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import Alamofire
 
 protocol LoginProtocol {
@@ -20,6 +20,8 @@ final class LoginWorker: LoginProtocol {
             fatalError("Could not create url")
         }
         
+        let headers: HTTPHeaders = ["Content-Type": "application/json"]
+        
         let jsonParameters: [String: Any] = [
             "email": loginUser.email,
             "password": loginUser.password
@@ -29,7 +31,7 @@ final class LoginWorker: LoginProtocol {
                    method: .post,
                    parameters: jsonParameters,
                    encoding: JSONEncoding.default,
-                   headers: ["Content-Type": "application/json"])
+                   headers: headers)
             .validate()
             .responseDecodable(of: TokenModel.self) { response in
                 completion(response.result)

@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import Kingfisher
 
 final class WatchCell: UICollectionViewCell {
     
@@ -12,7 +13,7 @@ final class WatchCell: UICollectionViewCell {
     private lazy var containterView: UIView = {
         let view = UIView(frame: .zero)
         view.clipsToBounds = true
-        view.backgroundColor = AppColor.themeSecondaryBackgroundColor.uiColor
+        view.backgroundColor = AppColor.grey0.uiColor
         view.layer.borderColor = AppColor.themeBorderColor.cgColor
         return view
     }()
@@ -27,8 +28,7 @@ final class WatchCell: UICollectionViewCell {
         let label = UILabel(frame: .zero)
         label.numberOfLines = 0
         label.font = AppFont.bold.s12()
-        label.textColor = AppColor.themeButtonColor.uiColor
-        label.text = "Tissot PRX"
+        label.textColor = AppColor.grey100.uiColor
         label.textAlignment = .center
         return label
     }()
@@ -65,24 +65,34 @@ final class WatchCell: UICollectionViewCell {
     
     private func setupConstraints() {
         containterView.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(8)
-            make.trailing.bottom.equalToSuperview().offset(-8)
+            make.edges.equalToSuperview()
         }
         
         watchImageView.snp.makeConstraints { make in
-            make.leading.top.trailing.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.8)
+            make.leading.equalToSuperview().offset(2)
+            make.top.equalToSuperview().offset(2)
+            make.trailing.equalToSuperview().offset(-2)
+            make.height.equalToSuperview().multipliedBy(0.7)
         }
         
         watchNameLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(8)
-            make.trailing.bottom.equalToSuperview().offset(-8)
+            make.leading.equalToSuperview().offset(2)
+            make.top.equalTo(watchImageView.snp.bottom).offset(2)
+            make.trailing.equalToSuperview().offset(-2)
+            make.bottom.equalToSuperview().offset(-2)
         }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
     // MARK: - Public
     
-    public func configure() {
-        
+    public func configure(watch: Watch) {
+        if let url = URL(string: watch.imageURL) {
+            watchImageView.kf.setImage(with: url)
+        }
+        watchNameLabel.text = "\(watch.brand) \(watch.model)"
     }
 }
