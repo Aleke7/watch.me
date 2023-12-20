@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import SkeletonView
 
 final class BrandCell: UICollectionViewCell {
     
@@ -8,7 +9,7 @@ final class BrandCell: UICollectionViewCell {
     
     static let identifier = String(describing: BrandCell.self)
     
-    // MARK: = UI
+    // MARK: - UI
     
     private lazy var containterView: UIView = {
         let view = UIView(frame: .zero)
@@ -21,7 +22,8 @@ final class BrandCell: UICollectionViewCell {
     private lazy var brandImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleToFill
-        imageView.layer.masksToBounds = true
+        imageView.clipsToBounds = true
+        imageView.isSkeletonable = true
         return imageView
     }()
     
@@ -31,6 +33,7 @@ final class BrandCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        startAnimation()
     }
     
     required init?(coder: NSCoder) {
@@ -67,12 +70,33 @@ final class BrandCell: UICollectionViewCell {
         }
     }
     
+    private func startAnimation() {
+        brandImageView.showAnimatedGradientSkeleton()
+    }
+    
+    private func stopAnimation() {
+        layoutSubviews()
+        brandImageView.hideSkeleton()
+        
+    }
+    
     // MARK: - Public
     
     public func configure(brand: Brand) {
         if let url = URL(string: brand.imageURL) {
-            brandImageView.kf.setImage(with: url)
+            brandImageView.kf.setImage(
+                with: url,
+                options: [
+                    .transition(.fade(0.3)),
+                    .cacheOriginalImage
+                ],
+                completionHandler: { result in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.stopAnimation()
+                    }
+                }
+            )
+            
         }
     }
-    
 }

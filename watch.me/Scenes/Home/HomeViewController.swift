@@ -5,9 +5,9 @@ protocol HomeDisplayLogic: AnyObject {
 }
 
 final class HomeViewController: ThemedViewController {
-
+    
     // MARK: - Properties
-
+    
     var router: HomeRoutingLogic?
     var interactor: HomeBusinessLogic?
     
@@ -15,10 +15,12 @@ final class HomeViewController: ThemedViewController {
     private var currentPage: Int = 1
     private var pageSize: Int = 8
     private var totalRecords: Int = 0
+    private var isLoadingMoreData = false
+    private var loadMoreDebouncer: Debouncer?
     
     private var brands: [Brand] = [
         Brand(imageURL: "https://www.butterfieldjewelers.com/media/catalog/category/tissot_1.jpg"),
-        Brand(imageURL: "https://www.thewatchcompany.com/media/tm_blog/p/o/7/6485/post_7_6485.jpg"),
+        Brand(imageURL: "https://logowik.com/content/uploads/images/275_rolex.jpg"),
         Brand(imageURL: "https://usa.watchpro.com/2019/09/Patek-Philippe-logo2.jpg"),
         Brand(imageURL: "https://1000logos.net/wp-content/uploads/2018/10/watch-brand-Panerai.jpg")
     ]
@@ -26,9 +28,9 @@ final class HomeViewController: ThemedViewController {
     private var collectionView: UICollectionView? {
         return (view as? HomeView)?.getMainCollectionView()
     }
-
+    
     // MARK: - Object Lifecycle
-
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,21 +38,28 @@ final class HomeViewController: ThemedViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - View Lifecycle
     
     override func loadView() {
         super.loadView()
         let homeView = HomeView()
-        homeView.getMainCollectionView()?.delegate = self
-        homeView.getMainCollectionView()?.dataSource = self
         view = homeView
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigation()
         requestWatches()
+        loadMoreDebouncer = Debouncer(delay: 0.5)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        currentPage = 1
+        watches = []
     }
     
     // MARK: - Setup Navigation
@@ -71,16 +80,29 @@ final class HomeViewController: ThemedViewController {
         interactor?.getWatches(request: request)
     }
     
+    func loadMoreWatches() {
+        guard !isLoadingMoreData else {
+            return
+        }
+        currentPage += 1
+        isLoadingMoreData = true
+        requestWatches()
+    }
+    
 }
 
 // MARK: - HomeDisplayLogic
 
 extension HomeViewController: HomeDisplayLogic {
     func displayWatches(viewModel: HomeModels.ViewModel) {
-        watches = viewModel.watches
-        collectionView?.reloadData()
+        watches.append(contentsOf: viewModel.watches)
+        
+        DispatchQueue.main.async {
+            self.collectionView?.reloadData()
+            self.isLoadingMoreData = false
+        }
     }
-
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -105,8 +127,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return UICollectionViewCell()
             }
             
-            let brand = brands[indexPath.item]
-            brandCell.configure(brand: brand)
+            if indexPath.item < brands.count {
+                let brand = brands[indexPath.item]
+                brandCell.configure(brand: brand)
+            }
+
             return brandCell
         }
         
@@ -115,8 +140,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             for: indexPath) as? WatchCell else {
             return UICollectionViewCell()
         }
-        let watch = watches[indexPath.item]
-        watchCell.configure(watch: watch)
+        if indexPath.item < watches.count {
+                let watch = watches[indexPath.item]
+                watchCell.configure(watch: watch)
+                watchCell.delegate = self
+            }
         return watchCell
     }
     
@@ -147,4 +175,27 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         return UICollectionReusableView()
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let scrollViewHeight = scrollView.frame.size.height
+        let contentOffsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        let nearBottom = contentOffsetY + scrollViewHeight >= contentHeight - 100
+        
+        loadMoreDebouncer?.call {
+            if nearBottom {
+                self.loadMoreWatches()
+            }
+        }
+    }
+}
+
+extension HomeViewController: WatchCellDelegate {
+    func openDetail(watch: Watch) {
+        let detailViewController = DetailViewController(watch: watch)
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    
 }

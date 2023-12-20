@@ -20,6 +20,8 @@ final class HomeView: UIView {
         collectionView.register(WatchCell.self,
                                 forCellWithReuseIdentifier: WatchCell.identifier)
         collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         return collectionView
     }()
     
@@ -34,13 +36,13 @@ final class HomeView: UIView {
                     elementKind: UICollectionView.elementKindSectionHeader,
                     alignment: .top)
                 
-                let width = UIScreen.main.bounds.width * 0.7
+                let width = UIScreen.main.bounds.width * 0.65
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                      heightDimension: .absolute(170))
+                                                      heightDimension: .absolute(160))
                 let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(width),
-                                                       heightDimension: .absolute(180))
+                                                       heightDimension: .absolute(170))
                 
                 let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                                      subitems: [layoutItem])
@@ -97,12 +99,6 @@ final class HomeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - View Lifecycle
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
     }
     
     // MARK: - Setup Views

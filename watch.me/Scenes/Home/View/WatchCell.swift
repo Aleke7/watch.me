@@ -1,12 +1,19 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import SkeletonView
+
+protocol WatchCellDelegate: AnyObject {
+    func openDetail(watch: Watch)
+}
 
 final class WatchCell: UICollectionViewCell {
     
     // MARK: - Properties
     
     static let identifier = String(describing: WatchCell.self)
+    private var watch: Watch?
+    weak var delegate: WatchCellDelegate?
     
     // MARK: - UI
     
@@ -15,6 +22,7 @@ final class WatchCell: UICollectionViewCell {
         view.clipsToBounds = true
         view.backgroundColor = AppColor.grey0.uiColor
         view.layer.borderColor = AppColor.themeBorderColor.cgColor
+        view.isSkeletonable = true
         return view
     }()
     
@@ -39,6 +47,7 @@ final class WatchCell: UICollectionViewCell {
         super.init(frame: frame)
         setupViews()
         setupConstraints()
+        setupGestureRecognizers()
     }
     
     required init?(coder: NSCoder) {
@@ -51,6 +60,7 @@ final class WatchCell: UICollectionViewCell {
         super.layoutSubviews()
         containterView.layer.borderWidth = 1
         containterView.layer.cornerRadius = 15
+        setupGestureRecognizers()
     }
     
     // MARK: - Setup Views
@@ -83,13 +93,24 @@ final class WatchCell: UICollectionViewCell {
         }
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
+    
+    private func setupGestureRecognizers() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
+        containterView.addGestureRecognizer(tapGestureRecognizer)
+        containterView.isUserInteractionEnabled = true
+    }
+    
+    @objc
+    private func handleTapGesture() {
+        if let watch = watch {
+            delegate?.openDetail(watch: watch)
+        }
     }
     
     // MARK: - Public
     
     public func configure(watch: Watch) {
+        self.watch = watch
         if let url = URL(string: watch.imageURL) {
             watchImageView.kf.setImage(with: url)
         }

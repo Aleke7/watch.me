@@ -1,18 +1,20 @@
 import Foundation
 import Alamofire
 
-protocol HomeProtocol {
-    func requestMoreWatches(page: Int,
+protocol SearchProtocol {
+    func searchWatches(searchText: String,
+                            page: Int,
                             pageSize: Int,
                             completion: @escaping (Result<WatchModel, AFError>) -> Void)
     
 }
 
-final class HomeWorker: HomeProtocol {
+final class SearchWorker: SearchProtocol {
     
     private let keychainService = KeyChainService()
     
-    func requestMoreWatches(page: Int,
+    func searchWatches(searchText: String,
+                            page: Int,
                             pageSize: Int,
                             completion: @escaping (Result<WatchModel, AFError>) -> Void) {
         var urlComponents = URLComponents()
@@ -22,7 +24,8 @@ final class HomeWorker: HomeProtocol {
         urlComponents.path = "/v1/watches"
         urlComponents.queryItems = [
             URLQueryItem(name: "page", value: "\(page)"),
-            URLQueryItem(name: "page_size", value: "\(pageSize)")
+            URLQueryItem(name: "page_size", value: "\(pageSize)"),
+            URLQueryItem(name: "brand", value: "\(searchText)"),
         ]
         
         

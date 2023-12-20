@@ -27,6 +27,7 @@ enum AppImage: String, AppImageProtocol {
     
     case appLogo = "app_logo"
     case appIcon = "AppIcon"
+    case arrowIcon = "arrow_icon"
     
     // MARK: - Sign
     

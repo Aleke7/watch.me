@@ -75,6 +75,28 @@
 		477B1EA82B30CBB9009E55FE /* KeyChainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EA72B30CBB9009E55FE /* KeyChainService.swift */; };
 		477B1EAC2B319C7A009E55FE /* Watch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EAB2B319C7A009E55FE /* Watch.swift */; };
 		477B1EAE2B31DA1D009E55FE /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EAD2B31DA1D009E55FE /* Brand.swift */; };
+		477B1EB52B320994009E55FE /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 477B1EB42B320994009E55FE /* SkeletonView */; };
+		477B1EBC2B3215B4009E55FE /* WatchesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EB62B3215B4009E55FE /* WatchesPresenter.swift */; };
+		477B1EBD2B3215B4009E55FE /* WatchesWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EB72B3215B4009E55FE /* WatchesWorker.swift */; };
+		477B1EBE2B3215B4009E55FE /* WatchesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EB82B3215B4009E55FE /* WatchesRouter.swift */; };
+		477B1EBF2B3215B4009E55FE /* WatchesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EB92B3215B4009E55FE /* WatchesModels.swift */; };
+		477B1EC02B3215B4009E55FE /* WatchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EBA2B3215B4009E55FE /* WatchesViewController.swift */; };
+		477B1EC12B3215B4009E55FE /* WatchesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EBB2B3215B4009E55FE /* WatchesInteractor.swift */; };
+		477B1EC32B3216BF009E55FE /* WatchesAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EC22B3216BF009E55FE /* WatchesAssembler.swift */; };
+		477B1EC62B321733009E55FE /* WatchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EC52B321733009E55FE /* WatchesView.swift */; };
+		477B1ECE2B322C1A009E55FE /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EC82B322C1A009E55FE /* SearchPresenter.swift */; };
+		477B1ECF2B322C1A009E55FE /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EC92B322C1A009E55FE /* SearchWorker.swift */; };
+		477B1ED02B322C1A009E55FE /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ECA2B322C1A009E55FE /* SearchRouter.swift */; };
+		477B1ED12B322C1A009E55FE /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ECB2B322C1A009E55FE /* SearchModels.swift */; };
+		477B1ED22B322C1A009E55FE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ECC2B322C1A009E55FE /* SearchViewController.swift */; };
+		477B1ED32B322C1A009E55FE /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ECD2B322C1A009E55FE /* SearchInteractor.swift */; };
+		477B1ED52B322C70009E55FE /* SearchAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ED42B322C70009E55FE /* SearchAssembler.swift */; };
+		477B1ED82B3232A4009E55FE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ED72B3232A4009E55FE /* SearchView.swift */; };
+		477B1EDA2B323572009E55FE /* SearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1ED92B323572009E55FE /* SearchHistoryCell.swift */; };
+		477B1EDD2B323927009E55FE /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EDC2B323927009E55FE /* SearchModel.swift */; };
+		477B1EE02B324139009E55FE /* HistoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EDF2B324139009E55FE /* HistoryService.swift */; };
+		477B1EE22B3255B4009E55FE /* Debouncer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EE12B3255B4009E55FE /* Debouncer.swift */; };
+		477B1EE52B326149009E55FE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 477B1EE42B326149009E55FE /* DetailViewController.swift */; };
 		47E239EC2AE6EEA000689B95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E239EB2AE6EEA000689B95 /* AppDelegate.swift */; };
 		47E239EE2AE6EEA000689B95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47E239ED2AE6EEA000689B95 /* SceneDelegate.swift */; };
 		47E239F52AE6EEA100689B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47E239F42AE6EEA100689B95 /* Assets.xcassets */; };
@@ -157,6 +179,27 @@
 		477B1EA72B30CBB9009E55FE /* KeyChainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainService.swift; sourceTree = "<group>"; };
 		477B1EAB2B319C7A009E55FE /* Watch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Watch.swift; sourceTree = "<group>"; };
 		477B1EAD2B31DA1D009E55FE /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		477B1EB62B3215B4009E55FE /* WatchesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesPresenter.swift; sourceTree = "<group>"; };
+		477B1EB72B3215B4009E55FE /* WatchesWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesWorker.swift; sourceTree = "<group>"; };
+		477B1EB82B3215B4009E55FE /* WatchesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesRouter.swift; sourceTree = "<group>"; };
+		477B1EB92B3215B4009E55FE /* WatchesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesModels.swift; sourceTree = "<group>"; };
+		477B1EBA2B3215B4009E55FE /* WatchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesViewController.swift; sourceTree = "<group>"; };
+		477B1EBB2B3215B4009E55FE /* WatchesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesInteractor.swift; sourceTree = "<group>"; };
+		477B1EC22B3216BF009E55FE /* WatchesAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesAssembler.swift; sourceTree = "<group>"; };
+		477B1EC52B321733009E55FE /* WatchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchesView.swift; sourceTree = "<group>"; };
+		477B1EC82B322C1A009E55FE /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		477B1EC92B322C1A009E55FE /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
+		477B1ECA2B322C1A009E55FE /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		477B1ECB2B322C1A009E55FE /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
+		477B1ECC2B322C1A009E55FE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		477B1ECD2B322C1A009E55FE /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		477B1ED42B322C70009E55FE /* SearchAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchAssembler.swift; path = ../../../../../Documents/SearchAssembler.swift; sourceTree = "<group>"; };
+		477B1ED72B3232A4009E55FE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		477B1ED92B323572009E55FE /* SearchHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryCell.swift; sourceTree = "<group>"; };
+		477B1EDC2B323927009E55FE /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		477B1EDF2B324139009E55FE /* HistoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryService.swift; sourceTree = "<group>"; };
+		477B1EE12B3255B4009E55FE /* Debouncer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debouncer.swift; sourceTree = "<group>"; };
+		477B1EE42B326149009E55FE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		47E239E82AE6EEA000689B95 /* watch.me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watch.me.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47E239EB2AE6EEA000689B95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47E239ED2AE6EEA000689B95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				477B1EA02B309C99009E55FE /* KeychainSwift in Frameworks */,
+				477B1EB52B320994009E55FE /* SkeletonView in Frameworks */,
 				477B1E512B2DB21E009E55FE /* ProgressHUD in Frameworks */,
 				47E23A072AE6F21900689B95 /* Kingfisher in Frameworks */,
 				47E23A012AE6EF9100689B95 /* SnapKit in Frameworks */,
@@ -194,6 +238,9 @@
 				474C4F992B2B5DAC00AF68CE /* Login */,
 				474C4FAB2B2B878000AF68CE /* Activation */,
 				477B1E522B2DB51D009E55FE /* Home */,
+				477B1EAF2B3204B0009E55FE /* Watches */,
+				477B1EE32B326117009E55FE /* Detail */,
+				477B1EC72B322BBC009E55FE /* Search */,
 				477B1E752B2EBE2A009E55FE /* Profile */,
 			);
 			path = Scenes;
@@ -202,12 +249,13 @@
 		474C4F7C2B2988EE00AF68CE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				477B1E912B2F54DA009E55FE /* ThemeManager */,
+				477B1E922B2F54F1009E55FE /* ThemeManager.swift */,
 				474C4F7D2B29893C00AF68CE /* InputTextField.swift */,
 				474C4F7F2B29933A00AF68CE /* InputTitleLabel.swift */,
 				474C4F932B29EFCB00AF68CE /* ProceedButton.swift */,
 				474C4F962B2B1BD100AF68CE /* SignView.swift */,
 				477B1E942B2F56E9009E55FE /* ThemedViewController.swift */,
+				477B1EE12B3255B4009E55FE /* Debouncer.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -381,14 +429,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		477B1E912B2F54DA009E55FE /* ThemeManager */ = {
-			isa = PBXGroup;
-			children = (
-				477B1E922B2F54F1009E55FE /* ThemeManager.swift */,
-			);
-			path = ThemeManager;
-			sourceTree = "<group>";
-		};
 		477B1E962B2F7CD5009E55FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,6 +461,79 @@
 				477B1EA72B30CBB9009E55FE /* KeyChainService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		477B1EAF2B3204B0009E55FE /* Watches */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EB62B3215B4009E55FE /* WatchesPresenter.swift */,
+				477B1EB72B3215B4009E55FE /* WatchesWorker.swift */,
+				477B1EB82B3215B4009E55FE /* WatchesRouter.swift */,
+				477B1EB92B3215B4009E55FE /* WatchesModels.swift */,
+				477B1EBA2B3215B4009E55FE /* WatchesViewController.swift */,
+				477B1EBB2B3215B4009E55FE /* WatchesInteractor.swift */,
+				477B1EC22B3216BF009E55FE /* WatchesAssembler.swift */,
+				477B1EC42B321716009E55FE /* View */,
+			);
+			path = Watches;
+			sourceTree = "<group>";
+		};
+		477B1EC42B321716009E55FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EC52B321733009E55FE /* WatchesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		477B1EC72B322BBC009E55FE /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EC82B322C1A009E55FE /* SearchPresenter.swift */,
+				477B1EC92B322C1A009E55FE /* SearchWorker.swift */,
+				477B1ECA2B322C1A009E55FE /* SearchRouter.swift */,
+				477B1ECB2B322C1A009E55FE /* SearchModels.swift */,
+				477B1ECC2B322C1A009E55FE /* SearchViewController.swift */,
+				477B1ECD2B322C1A009E55FE /* SearchInteractor.swift */,
+				477B1ED42B322C70009E55FE /* SearchAssembler.swift */,
+				477B1EDB2B323914009E55FE /* Model */,
+				477B1EDE2B324124009E55FE /* Service */,
+				477B1ED62B323290009E55FE /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		477B1ED62B323290009E55FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				477B1ED72B3232A4009E55FE /* SearchView.swift */,
+				477B1ED92B323572009E55FE /* SearchHistoryCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		477B1EDB2B323914009E55FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EDC2B323927009E55FE /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		477B1EDE2B324124009E55FE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EDF2B324139009E55FE /* HistoryService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		477B1EE32B326117009E55FE /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				477B1EE42B326149009E55FE /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		47E239DF2AE6EEA000689B95 = {
@@ -509,6 +622,7 @@
 				47E23A092AE6F23A00689B95 /* netfox */,
 				477B1E502B2DB21E009E55FE /* ProgressHUD */,
 				477B1E9F2B309C99009E55FE /* KeychainSwift */,
+				477B1EB42B320994009E55FE /* SkeletonView */,
 			);
 			productName = watch.me;
 			productReference = 47E239E82AE6EEA000689B95 /* watch.me.app */;
@@ -545,6 +659,7 @@
 				47E23A082AE6F23900689B95 /* XCRemoteSwiftPackageReference "netfox" */,
 				477B1E4F2B2DB21E009E55FE /* XCRemoteSwiftPackageReference "ProgressHUD" */,
 				477B1E9E2B309C99009E55FE /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				477B1EB32B320994009E55FE /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			productRefGroup = 47E239E92AE6EEA000689B95 /* Products */;
 			projectDirPath = "";
@@ -577,21 +692,31 @@
 			files = (
 				477B1E8C2B2F29B2009E55FE /* EmailCell.swift in Sources */,
 				474C4F972B2B1BD100AF68CE /* SignView.swift in Sources */,
+				477B1EC12B3215B4009E55FE /* WatchesInteractor.swift in Sources */,
 				474C4FB72B2C84AC00AF68CE /* ActivationInteractor.swift in Sources */,
 				474C4F8F2B29DE3700AF68CE /* RegistrationAssembler.swift in Sources */,
+				477B1EBE2B3215B4009E55FE /* WatchesRouter.swift in Sources */,
+				477B1ED32B322C1A009E55FE /* SearchInteractor.swift in Sources */,
 				477B1E5E2B2DC1E3009E55FE /* HomeInteractor.swift in Sources */,
+				477B1EBD2B3215B4009E55FE /* WatchesWorker.swift in Sources */,
 				474C4FBF2B2CBF8600AF68CE /* SplashViewController.swift in Sources */,
 				477B1E6B2B2E1E2C009E55FE /* BrandCell.swift in Sources */,
 				477B1EAE2B31DA1D009E55FE /* Brand.swift in Sources */,
 				477B1EA32B30B513009E55FE /* Token.swift in Sources */,
+				477B1EE52B326149009E55FE /* DetailViewController.swift in Sources */,
 				474C4FB62B2C84AC00AF68CE /* ActivationViewController.swift in Sources */,
+				477B1ED82B3232A4009E55FE /* SearchView.swift in Sources */,
 				474C4FB92B2C856900AF68CE /* ActivationAssembler.swift in Sources */,
+				477B1EDD2B323927009E55FE /* SearchModel.swift in Sources */,
 				477B1E5B2B2DC1E3009E55FE /* HomeRouter.swift in Sources */,
 				477B1E6D2B2E2060009E55FE /* PopularHeaderView.swift in Sources */,
+				477B1EC02B3215B4009E55FE /* WatchesViewController.swift in Sources */,
+				477B1ED12B322C1A009E55FE /* SearchModels.swift in Sources */,
 				474C4FB22B2C84AC00AF68CE /* ActivationPresenter.swift in Sources */,
 				477B1E7D2B2EBE44009E55FE /* ProfileWorker.swift in Sources */,
 				477B1E9A2B2F83E2009E55FE /* User.swift in Sources */,
 				474C4F922B29DFCF00AF68CE /* RegistrationView.swift in Sources */,
+				477B1EBC2B3215B4009E55FE /* WatchesPresenter.swift in Sources */,
 				47E23A0F2AE6F40800689B95 /* AppColor.swift in Sources */,
 				477B1E5C2B2DC1E3009E55FE /* HomeModels.swift in Sources */,
 				477B1E5D2B2DC1E3009E55FE /* HomeViewController.swift in Sources */,
@@ -600,10 +725,13 @@
 				474C4F892B29DE2100AF68CE /* RegistrationWorker.swift in Sources */,
 				477B1E932B2F54F1009E55FE /* ThemeManager.swift in Sources */,
 				477B1E5A2B2DC1E3009E55FE /* HomeWorker.swift in Sources */,
+				477B1ED02B322C1A009E55FE /* SearchRouter.swift in Sources */,
 				477B1E7C2B2EBE44009E55FE /* ProfilePresenter.swift in Sources */,
 				477B1E642B2DC806009E55FE /* HomeView.swift in Sources */,
 				477B1EA52B30B52B009E55FE /* LoginUser.swift in Sources */,
 				474C4FA52B2B5DCF00AF68CE /* LoginInteractor.swift in Sources */,
+				477B1EC62B321733009E55FE /* WatchesView.swift in Sources */,
+				477B1EC32B3216BF009E55FE /* WatchesAssembler.swift in Sources */,
 				474C4F8A2B29DE2100AF68CE /* RegistrationRouter.swift in Sources */,
 				47E8609D2B22F4A5000E9EDD /* AppFont.swift in Sources */,
 				477B1EA82B30CBB9009E55FE /* KeyChainService.swift in Sources */,
@@ -611,11 +739,13 @@
 				47E23A0D2AE6F3C800689B95 /* AppImage.swift in Sources */,
 				477B1E7E2B2EBE44009E55FE /* ProfileRouter.swift in Sources */,
 				47E239EC2AE6EEA000689B95 /* AppDelegate.swift in Sources */,
+				477B1EBF2B3215B4009E55FE /* WatchesModels.swift in Sources */,
 				474C4FA32B2B5DCF00AF68CE /* LoginModels.swift in Sources */,
 				474C4FBC2B2C867500AF68CE /* ActivationView.swift in Sources */,
 				477B1E9D2B2F96E9009E55FE /* String+Extensions.swift in Sources */,
 				477B1E6F2B2E2142009E55FE /* WatchCell.swift in Sources */,
 				477B1E902B2F38DF009E55FE /* FavoritesCell.swift in Sources */,
+				477B1EDA2B323572009E55FE /* SearchHistoryCell.swift in Sources */,
 				477B1E692B2E1B17009E55FE /* BrandHeaderView.swift in Sources */,
 				474C4FA42B2B5DCF00AF68CE /* LoginViewController.swift in Sources */,
 				477B1E802B2EBE44009E55FE /* ProfileViewController.swift in Sources */,
@@ -626,9 +756,12 @@
 				477B1E8E2B2F3593009E55FE /* DarkThemeCell.swift in Sources */,
 				477B1E612B2DC586009E55FE /* HomeAssembler.swift in Sources */,
 				477B1E952B2F56E9009E55FE /* ThemedViewController.swift in Sources */,
+				477B1ED22B322C1A009E55FE /* SearchViewController.swift in Sources */,
 				474C4FAA2B2B664A00AF68CE /* LoginView.swift in Sources */,
 				474C4F882B29DE2100AF68CE /* RegistrationPresenter.swift in Sources */,
+				477B1ECF2B322C1A009E55FE /* SearchWorker.swift in Sources */,
 				477B1E862B2EC236009E55FE /* ProfileView.swift in Sources */,
+				477B1ECE2B322C1A009E55FE /* SearchPresenter.swift in Sources */,
 				474C4FA72B2B618B00AF68CE /* LoginAssembler.swift in Sources */,
 				474C4F8C2B29DE2100AF68CE /* RegistrationViewController.swift in Sources */,
 				474C4FA02B2B5DCF00AF68CE /* LoginPresenter.swift in Sources */,
@@ -638,10 +771,13 @@
 				477B1E592B2DC1E3009E55FE /* HomePresenter.swift in Sources */,
 				474C4F8D2B29DE2100AF68CE /* RegistrationInteractor.swift in Sources */,
 				474C4FB42B2C84AC00AF68CE /* ActivationRouter.swift in Sources */,
+				477B1EE02B324139009E55FE /* HistoryService.swift in Sources */,
 				477B1E672B2DE000009E55FE /* HomeTabBarController.swift in Sources */,
 				477B1E882B2F262B009E55FE /* SeparatorCell.swift in Sources */,
+				477B1EE22B3255B4009E55FE /* Debouncer.swift in Sources */,
 				474C4FA12B2B5DCF00AF68CE /* LoginWorker.swift in Sources */,
 				474C4FB52B2C84AC00AF68CE /* ActivationModels.swift in Sources */,
+				477B1ED52B322C70009E55FE /* SearchAssembler.swift in Sources */,
 				474C4FA22B2B5DCF00AF68CE /* LoginRouter.swift in Sources */,
 				477B1E812B2EBE44009E55FE /* ProfileInteractor.swift in Sources */,
 				474C4F7E2B29893C00AF68CE /* InputTextField.swift in Sources */,
@@ -714,7 +850,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -771,7 +907,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -795,7 +931,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -823,7 +959,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -877,6 +1013,14 @@
 				minimumVersion = 20.0.0;
 			};
 		};
+		477B1EB32B320994009E55FE /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.30.4;
+			};
+		};
 		47E239FF2AE6EF9100689B95 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -921,6 +1065,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 477B1E9E2B309C99009E55FE /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		477B1EB42B320994009E55FE /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 477B1EB32B320994009E55FE /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		47E23A002AE6EF9100689B95 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -44,7 +44,7 @@ final class HomeTabBarController: UITabBarController {
     
     private func setupTabbar() {
         let imageYPositionAdjustment: CGFloat = -20
-        let first = UINavigationController(rootViewController: HomeAssembler.assemble())
+        let first = UINavigationController(rootViewController: WatchesAssembler.assemble())
         first.tabBarItem = UITabBarItem(title: nil,
                                         image: UIImage(systemName: "watch.analog"),
                                         selectedImage: UIImage(systemName: "watch.analog"))
